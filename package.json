@@ -1,0 +1,14 @@
+{
+  "name": "@frontend/analytics",
+  "description": "This plugin is used to install analytics matomo tag manager functions for frontend nuxt projects, must used with /site.js included",
+  "version": "0.0.1",
+  "main": "index.js",
+  "publishConfig": {
+    "@frontend:registry": "https://git.dingyi.io/api/v4/projects/865/packages/npm/"
+  },
+  "keywords": [
+    "analytics-mtm"
+  ],
+  "author": "Scott",
+  "license": "MIT"
+}
