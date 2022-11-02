@@ -1,6 +1,6 @@
 {
-  "name": "@frontend/analytics",
-  "description": "This plugin is used to install analytics matomo tag manager functions for frontend nuxt projects, must used with /site.js included",
+  "name": "@frontend/analytics-mtm",
+  "description": "This plugin is used to install analytics matomo tag manager functions for frontend nuxt projects",
   "version": "0.0.1",
   "main": "index.js",
   "publishConfig": {
