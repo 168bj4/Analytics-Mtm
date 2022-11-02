@@ -10,7 +10,7 @@ export default {
     install: function(Vue, options) {
         this._mtm = window._mtm = window._mtm || [];
         // check if matomo url and container id is defined
-        if ( (typeof options == "undefined") || (typeof options.url == "undefined") || (typeof options.id == "undefined") ) {
+        if ( (typeof options == "undefined") || (typeof options.url == "undefined") || (typeof options.id == "undefined") || (typeof options.id == "number") ) {
             return;
         }
         this.init(options);
