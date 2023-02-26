@@ -2,6 +2,12 @@
 
 This plugin is used to install analytics functions for frontend nuxt projects, must used with /site.js included
 
+# Edit Plugin
+```
+npm install && npm run build
+npm publish
+```
+
 # Before Install
 
 Must check the /site.js is included.
@@ -13,7 +19,7 @@ _jsvar.siteId = 168;
 _jsvar.siteType = 'forum';
 _jsvar.siteLocale = 'zh_cn';
 _jsvar.siteAnalyticsUrl = 'https://analytcis.dingyi.io';
-_jsvar.siteAnalyticsId = 1;
+_jsvar.siteAnalyticsId = '{{ matomo tag manager id }}';
 window._jsvar = _jsvar;
 ```
 
@@ -122,6 +128,13 @@ import Tracker from '@frontend/analytics';
 
 ## Example
 
-Tracker.event('Envelope', 'click', 'button1', 1000);
+/**
+  * Example {'Event8  Name', data}
+  * data: {
+  *   key: value,
+  *   key2: value2,
+  *   key3: [],
+  * }
+  */
 
 ```

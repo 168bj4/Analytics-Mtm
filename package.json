@@ -1,14 +1,26 @@
 {
   "name": "@frontend/analytics-mtm",
   "description": "This plugin is used to install analytics matomo tag manager functions for frontend nuxt projects",
-  "version": "0.0.2",
-  "main": "index.js",
+  "version": "0.0.3",
+  "main": "dist/index.js",
+  "files": [
+    "dist/*"
+  ],
   "publishConfig": {
     "@frontend:registry": "https://git.dingyi.io/api/v4/projects/865/packages/npm/"
   },
   "keywords": [
     "analytics-mtm"
   ],
-  "author": "Scott",
-  "license": "MIT"
+  "author": "Scott Yen",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "uglify-js": "^3.17.4"
+  },
+  "scripts": {
+    "build": "npx babel ./src/main.js --out-file ./dist/index.js && npx uglifyjs ./dist/index.js --output ./dist/index.js"
+  }
 }

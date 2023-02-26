@@ -51,21 +51,25 @@ export default {
 
         options.router.afterEach((to, from) => {
             const currentOptions = options.router.options.history || options.router.options,
-                  base = currentOptions.base.substring(0, currentOptions.base.length - 1),
-                  currentUrl = `${window.location.protocol}//${window.location.host}${base}${to.fullPath}`;
+                base = currentOptions.base.substring(0, currentOptions.base.length - 1),
+                currentUrl = `${window.location.protocol}//${window.location.host}${base}${to.fullPath}`;
 
-            let currentTitle = `${document.title}`,
+            let currentTitle = null,
                 userId = null,
                 userAccount = null,
                 referrerUrl = document.referrer,
                 loadTime = null;
 
+            if (referrerUrl == "") {
+                referrerUrl = null;
+            }
 
-            if ((typeof options.user !== 'undefined') && (typeof options.user.id !== 'undefined') && (options.user.id !== 0)) {
+            // if user id = 0, will be verifyed as none login user
+            if (typeof options.user !== "undefined" && typeof options.user.id !== "undefined" && options.user.id !== 0) {
                 userId = `${options.user.id.toString()}`;
             }
 
-            if ((typeof options.user !== 'undefined') && (typeof options.user.account !== 'undefined')) {
+            if (typeof options.user !== "undefined" && typeof options.user.account !== "undefined") {
                 userAccount = `${options.user.account.toString()}`;
             }
 
@@ -80,14 +84,15 @@ export default {
             // delay 0.5 second for title parse
             setTimeout(() => {
                 currentTitle = `${document.title}`;
-                this._mtm.push({'event': 'PageView', 
-                                'currentUrl': currentUrl, 
-                                'referrerUrl': referrerUrl, 
-                                'currentTitle': currentTitle,
-                                'userId': userId,
-                                'userAccount': userAccount,
-                                'loadTime': loadTime
-                            });
+                this._mtm.push({
+                event: "PageView",
+                currentUrl: currentUrl,
+                referrerUrl: referrerUrl,
+                currentTitle: currentTitle,
+                userId: userId,
+                userAccount: userAccount,
+                loadTime: loadTime,
+                });
             }, 500);
         });
     },
@@ -114,13 +119,10 @@ export default {
         let response = '';
         const dateTime = new Date().getTime();
         const timestamp = Math.floor(dateTime / 1000);
-
         if (typeof prefix === 'string') {
             response += `${prefix}-`;
         }
-
         response += `${timestamp}`;
-        
         if (typeof postfix === 'string') {
             response += `-${postfix}`;
         }
