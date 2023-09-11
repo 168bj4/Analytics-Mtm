@@ -7,7 +7,7 @@
     "dist/*"
   ],
   "publishConfig": {
-    "@frontend:registry": "https://git.dingyi.io/api/v4/projects/865/packages/npm/"
+    "@frontend:registry": "https://git.168-system.com/api/v4/projects/865/packages/npm/"
   },
   "keywords": [
     "analytics-mtm"
