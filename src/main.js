@@ -31,7 +31,8 @@ export default {
 
         g.async=true; 
         g.src=`${options.url}/js/container_${options.id}.js`;
-        s.parentNode.insertBefore(g,s);
+        // s.parentNode.insertBefore(g,s);
+        s.parentNode.appendChild(g);
     },
     /**
     * Bind SPA router function

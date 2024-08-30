@@ -37,16 +37,16 @@ VUE-CLI / Step 2. Create site.js in public/site.js (Required)
 
 # Registry Setup
 
-### https://git.168-system.com/help/user/packages/npm_registry/index
+### 
 ```
 # Set URL for your scoped packages.
 # For example package with name `@frontend/analytics-mtm` will use this URL for download
-npm config set @frontend:registry https://git.168-system.com/api/v4/packages/npm/
+npm config set @frontend:registry https://{{ analytics_domain }}/api/v4/packages/npm/
 
 # Add the token for the scoped packages URL. This will allow you to download
 # `@frontend/` packages from private projects.
 # You can find persion_token on your profile page, and replace the <your_token> as follow.
-npm config set '//git.168-system.com/api/v4/packages/npm/:_authToken' "<your_token>"
+npm config set '//{{ analytics_domain }}/api/v4/packages/npm/:_authToken' "<your_token>"
 ```
 
 # NUXT Setup
